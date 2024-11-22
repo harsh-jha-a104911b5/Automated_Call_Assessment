@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function showLoading() {
+            document.getElementById("loading").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Audio Analysis Tool</h1>
+    <div id="loading" style="display:none;">Processing your file, please wait...</div>
+    <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+        <label for="file">Upload an audio file:</label>
+        <input type="file" name="file" id="file" accept=".wav,.mp3,.flac" required>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if summary %}
+        <h2>Analysis Summary</h2>
+        <pre>{{ summary }}</pre>
+    {% endif %}
+</body>
+</html>
