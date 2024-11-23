@@ -266,9 +266,6 @@ class ConversationAnalyzer:
         5. Key Insights and Learnings:
            - Provide a deeper analysis of the conversation.
 
-        6. Actionable Suggestions:
-           - Based on the analysis, what actionable suggestions can be provided?
-
         7. Conversation Context:
            - {conversation_text}
         """
