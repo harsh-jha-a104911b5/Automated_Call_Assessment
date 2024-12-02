@@ -94,7 +94,6 @@ app/
 - CUDA-capable GPU (recommended)
 - CUDA Toolkit (for GPU acceleration)
 - Minimum 8GB RAM
-- Storage space for models and temporary files
 
 ## Dependencies 📚
 
@@ -144,13 +143,6 @@ The analysis generates a structured summary including:
 4. Overall Emotional Tone
 5. Key Insights
 6. Actionable Suggestions
-
-## Performance Optimization 🚀
-
-- GPU acceleration for neural network operations
-- Batch processing for multiple files
-- Efficient memory management
-- Progress tracking and status updates
 
 ## Troubleshooting 🔧
 
