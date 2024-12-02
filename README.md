@@ -189,5 +189,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 If you encounter any issues or have questions, please:
 1. Check the troubleshooting section
-2. Open an issue on GitHub
-3. Contact the author
+2. Open an issue on GitHub!
+
+3. Contact the author 
+
+## Implementation 
+(https://github.com/user-attachments/assets/f7c6aba5-afff-4882-9f9f-d2429f0496f9)
+(https://github.com/user-attachments/assets/04fd4e17-e347-4b99-bf72-e21ae3794b32)
