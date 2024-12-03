@@ -33,7 +33,7 @@ class ConversationAnalyzer:
         print("Loading diarization model...")
         self.diarization_pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
-            use_auth_token="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"
+            use_auth_token=os.getenv('HF_AUTH_TOKEN')
         )
         # Move diarization pipeline to GPU
         self.diarization_pipeline.to(self.device)
@@ -56,8 +56,7 @@ class ConversationAnalyzer:
 
     def _setup_gemini(self):
         """Set up the Gemini model"""
-        os.environ["API_KEY"] = "AIzaSyC_YhKLA5vhtiqiRJTur93duTc4jDs79vg"
-        genai.configure(api_key=os.environ["API_KEY"])
+        genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
         self.gemini_model = genai.GenerativeModel("gemini-1.5-flash")
 
     def load_audio(self, audio_path, target_sample_rate=16000):
