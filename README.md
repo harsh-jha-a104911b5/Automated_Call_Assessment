@@ -24,7 +24,7 @@ An advanced audio analysis platform that leverages AI to provide deep insights i
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/conversation-analysis-platform.git
+git clone https://github.com/Sarthakischill/Conversation_Analysis.git
 cd conversation-analysis-platform
 ```
 
