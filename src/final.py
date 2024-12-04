@@ -10,6 +10,7 @@ from joblib import load
 import numpy as np
 import google.generativeai as genai
 from pathlib import Path
+from dotenv import load_dotenv
 
 class ConversationAnalyzer:
     def __init__(self):
@@ -17,6 +18,9 @@ class ConversationAnalyzer:
         self.models_dir = Path("models")
         self.output_folder = Path("results")
         self.output_folder.mkdir(exist_ok=True)
+
+        # Load environment variables
+        load_dotenv()
 
         # Check for CUDA availability
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -31,9 +35,14 @@ class ConversationAnalyzer:
     def _load_models(self):
         """Load all required models with GPU support"""
         print("Loading diarization model...")
+        # Retrieve Hugging Face token from environment variable
+        huggingface_token = os.getenv('HUGGINGFACE_AUTH_TOKEN')
+        if not huggingface_token:
+            raise ValueError("HUGGINGFACE_AUTH_TOKEN not found in .env file")
+
         self.diarization_pipeline = Pipeline.from_pretrained(
             "pyannote/speaker-diarization-3.1",
-            use_auth_token=os.getenv('HF_AUTH_TOKEN')
+            use_auth_token=huggingface_token
         )
         # Move diarization pipeline to GPU
         self.diarization_pipeline.to(self.device)
@@ -56,7 +65,12 @@ class ConversationAnalyzer:
 
     def _setup_gemini(self):
         """Set up the Gemini model"""
-        genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+        # Retrieve Gemini API key from environment variable
+        gemini_api_key = os.getenv('GEMINI_API_KEY')
+        if not gemini_api_key:
+            raise ValueError("GEMINI_API_KEY not found in .env file")
+
+        genai.configure(api_key=gemini_api_key)
         self.gemini_model = genai.GenerativeModel("gemini-1.5-flash")
 
     def load_audio(self, audio_path, target_sample_rate=16000):

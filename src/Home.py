@@ -4,7 +4,6 @@
 # │   └── 1_Batch_Analysis.py
 # └── Home.py
 
-# First, let's create the main Home.py (rename your current app.py to Home.py)
 import streamlit as st
 import os
 from pathlib import Path
