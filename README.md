@@ -181,9 +181,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Author ✍️
 
-[Sarthak]
-- GitHub: [@Sarthakischill]
-- Email: sarthakshitole@gmail.com
+[Harsh]
+- GitHub: [@harsh-jha-a104911b5]
+- Email: harshjha19.jsr@gmail.com
 
 ## Support 💪
 
